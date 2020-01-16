@@ -2,6 +2,8 @@ FROM    golang:1.13
 
 ENV     GO111MODULE on
 
+RUN	apt-get -y update && apt-get -y install vim
+
 RUN	echo && echo "Clone operator-sdk from github.com..." && echo && \
         mkdir -p $GOPATH/src/github.com/operator-framework && \
         cd $GOPATH/src/github.com/operator-framework && \
