@@ -1,8 +1,8 @@
-FROM    golang:1.13
+FROM    golang:1.13-alpine3.10
 
 ENV     GO111MODULE on
 
-RUN	apt-get -y update && apt-get -y install vim
+RUN	apk update && apk upgrade && apk add vim curl git make mercurial docker bash
 
 RUN	echo && echo "Clone operator-sdk from github.com..." && echo && \
         mkdir -p $GOPATH/src/github.com/operator-framework && \
@@ -15,3 +15,8 @@ RUN	echo && echo "Clone operator-sdk from github.com..." && echo && \
         make tidy && \
         echo && echo "make install..." && echo && \
         make install
+
+RUN	curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl \
+	&& chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
+
+VOLUME	[ "/sys/fs/cgroup", "/go/src" ]
