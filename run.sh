@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd $GOPATH
-docker run --rm -it -w /go/src -v operator-sdk:/go/pkg -v $(pwd):/go/src -v //var/run/docker.sock:/var/run/docker.sock --privileged operator-sdk
+docker run --rm -it --privileged -v $(pwd):/go/src -v //var/run/docker.sock:/var/run/docker.sock operator-sdk
