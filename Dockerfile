@@ -22,4 +22,4 @@ RUN	curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.15.0/b
 WORKDIR	/go/src
 
 VOLUME	[ "/sys/fs/cgroup", "/go/src" ]
-VOLUME	[ "//var/run/docker.sock", "/var/run/docker.sock" ]
+VOLUME	[ "operator-sdk", "/go/pkg"  ]
