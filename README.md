@@ -1,5 +1,6 @@
 # Docker image for developing and building K8s operators
-￼
+
+
 - alpine 3.10
 - golang 1.13
 - kubectl 1.15
