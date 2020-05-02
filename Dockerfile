@@ -1,8 +1,8 @@
-FROM    golang:1.13-alpine3.10
+FROM    golang:1.14.2-alpine3.11
 
 ENV     GO111MODULE on
 
-RUN	apk update && apk upgrade && apk add vim curl git make mercurial docker bash
+RUN	apk update && apk upgrade && apk add vim curl git make mercurial docker bash tree
 
 RUN	echo && echo "Clone operator-sdk from github.com..." && echo && \
         mkdir -p $GOPATH/src/github.com/operator-framework && \
